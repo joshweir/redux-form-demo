@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { fetchFormData } from "../modules/formWizard/actions";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { fetchFormData } from '../modules/formWizard/actions'
 import {
   getBackDisabled,
   getCurrentPage,
@@ -10,14 +10,14 @@ import {
   getIsFormLoading,
   getNextDisabled,
   getTotalPages
-} from "../modules/formWizard/selectors";
-import Form from "../components/Form";
-import FormNavigator from "../components/FormNavigator";
+} from '../modules/formWizard/selectors'
+import Form from '../components/Form'
+import FormNavigator from '../components/FormNavigator'
 
 class FormWizard extends Component {
   componentWillMount() {
-    const { slug, fetchFormData } = this.props;
-    fetchFormData(slug);
+    const { slug, fetchFormData } = this.props
+    fetchFormData(slug)
   }
 
   render() {
@@ -26,7 +26,7 @@ class FormWizard extends Component {
         <Form {...this.props} />
         <FormNavigator {...this.props} />
       </div>
-    );
+    )
   }
 }
 
@@ -41,14 +41,14 @@ FormWizard.propTypes = {
   handleNextClick: PropTypes.func.isRequired,
   nextDisabled: PropTypes.bool.isRequired,
   formComponent: PropTypes.string
-};
+}
 
 FormWizard.defaultProps = {
   totalPages: null,
   currentPage: null,
   currentPageData: {},
   formComponent: null
-};
+}
 
 const mapStateToProps = state => ({
   backDisabled: getBackDisabled(state),
@@ -58,9 +58,9 @@ const mapStateToProps = state => ({
   loading: getIsFormLoading(state),
   nextDisabled: getNextDisabled(state),
   totalPages: getTotalPages(state)
-});
+})
 
 export default connect(
   mapStateToProps,
   { fetchFormData }
-)(FormWizard);
+)(FormWizard)

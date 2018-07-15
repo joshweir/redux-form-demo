@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Button from "./Button";
-import FormNavInfo from "./FormNavInfo";
-import FormNavWrapper from "./FormNavWrapper";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Button from './Button'
+import FormNavInfo from './FormNavInfo'
+import FormNavWrapper from './FormNavWrapper'
 
 const FormNavigator = ({
   currentPage,
@@ -27,7 +27,7 @@ const FormNavigator = ({
       Next
     </Button>
   </FormNavWrapper>
-);
+)
 
 FormNavigator.propTypes = {
   currentPage: PropTypes.number,
@@ -36,13 +36,13 @@ FormNavigator.propTypes = {
   handleBackClick: PropTypes.func.isRequired,
   handleNextClick: PropTypes.func.isRequired,
   nextDisabled: PropTypes.bool
-};
+}
 
 FormNavigator.defaultProps = {
   currentPage: null,
   totalPages: null,
   nextDisabled: true,
   backDisabled: true
-};
+}
 
-export default FormNavigator;
+export default FormNavigator

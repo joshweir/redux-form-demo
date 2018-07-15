@@ -6,6 +6,7 @@ import {
   getBackDisabled,
   getCurrentPage,
   getCurrentPageData,
+  getError,
   getFormComponentName,
   getIsFormLoading,
   getNextDisabled,
@@ -40,14 +41,17 @@ FormWizard.propTypes = {
   handleBackClick: PropTypes.func.isRequired,
   handleNextClick: PropTypes.func.isRequired,
   nextDisabled: PropTypes.bool.isRequired,
-  formComponent: PropTypes.string
+  formComponent: PropTypes.string,
+  error: PropTypes.shape({}),
+  loading: PropTypes.bool.isRequired
 }
 
 FormWizard.defaultProps = {
   totalPages: null,
   currentPage: null,
   currentPageData: {},
-  formComponent: null
+  formComponent: null,
+  error: null
 }
 
 const mapStateToProps = state => ({
@@ -57,7 +61,8 @@ const mapStateToProps = state => ({
   formComponent: getFormComponentName(state),
   loading: getIsFormLoading(state),
   nextDisabled: getNextDisabled(state),
-  totalPages: getTotalPages(state)
+  totalPages: getTotalPages(state),
+  error: getError(state)
 })
 
 export default connect(

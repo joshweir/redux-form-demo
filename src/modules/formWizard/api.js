@@ -7,10 +7,10 @@ export default () => {
     withCredentials: true
   })
   return {
-    getFormData: ({ slug }) =>
+    getFormData: ({ slug, sessionId }) =>
       client.request({
         method: 'GET',
-        url: `/forms/${slug}`
+        url: `/forms/${slug}/${sessionId}`
       })
   }
 }
